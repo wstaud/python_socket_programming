@@ -1,0 +1,19 @@
+import socket
+
+HOST = ''
+PORT = 8888
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((HOST, PORT))
+s.listen(1)
+conn, addr = s.accept()
+print 'Connected by', addr
+
+while 1:
+    data = conn.recv(1024)
+    if not data: break
+    str_reverse = data.split()
+    str_reverse.reverse()
+    data = " ".join(str_reverse)
+    conn.sendall(data)
+conn.close()
