@@ -15,6 +15,7 @@ typ = 0x0806
 # etherhdr = dst + src + typ
 etherhdr = struct.pack("!6s6sH", dst, src, typ)
 
+
 # ARP header
 htype = 1
 ptype = 0x0800
